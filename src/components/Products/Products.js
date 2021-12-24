@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
 // import storeData from '../../storeData/storeWoman';
-import './Products.css'
+import './Products.css';
+import storeWoman from "../../storeData/storeWoman";
+import storeMan from "../../storeData/storeMan";
+import storeKids from "../../storeData/storeKids";
+import storeHome from "../../storeData/storeHome";
 
 export default class Products extends Component {
+    state = {
+        woman: storeWoman,
+        man: storeMan,
+        kids: storeKids,
+        home: storeHome,
+        categoryName: this.props.match.params.name,
+      };
 
     // handleClick = () => {
     //     this.props.history.goBack();

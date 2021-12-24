@@ -17,46 +17,26 @@ export default class Products extends Component {
     categoryName: this.props.match.params.name,
   };
 
-  render() {
-    // console.log(this.state[this.state.categoryName][0].imgClass);
+  displayItem = () => {
+    return this.state[this.state.categoryName].map((category,idx) => {
+      return (
+        <Link
+          to={`/products/${this.state.categoryName}/${this.state[this.state.categoryName][idx].category.toLowerCase()}/${idx}`}
+          className="categories--link"
+        >
+          <CategoryCard
+            categoryCardClass={this.state[this.state.categoryName][idx].imgClass}
+            categoryCardName={this.state[this.state.categoryName][idx].category}
+          />
+        </Link>
+      );
+    });
+  }
+
+  render() {   
     return (
       <div className="categories">
-        <Link
-          to={`/products/${this.state.categoryName}/${this.state[this.state.categoryName][0].category.toLowerCase()}`}
-          className="categories--link"
-        >
-          <CategoryCard
-            categoryCardClass={this.state[this.state.categoryName][0].imgClass}
-            categoryCardName={this.state[this.state.categoryName][0].category}
-          />
-        </Link>
-        <Link
-          to={`/products/${this.state.categoryName}/${this.state[this.state.categoryName][1].category.toLowerCase()}`}
-          className="categories--link"
-        >
-          <CategoryCard
-            categoryCardClass={this.state[this.state.categoryName][1].imgClass}
-            categoryCardName={this.state[this.state.categoryName][1].category}
-          />
-        </Link>
-        <Link
-          to={`/products/${this.state.categoryName}/${this.state[this.state.categoryName][2].category.toLowerCase()}`}
-          className="categories--link"
-        >
-          <CategoryCard
-            categoryCardClass={this.state[this.state.categoryName][2].imgClass}
-            categoryCardName={this.state[this.state.categoryName][2].category}
-          />
-        </Link>
-        <Link
-          to={`/products/${this.state.categoryName}/${this.state[this.state.categoryName][3].category.toLowerCase()}`}
-          className="categories--link"
-        >
-          <CategoryCard
-            categoryCardClass={this.state[this.state.categoryName][3].imgClass}
-            categoryCardName={this.state[this.state.categoryName][3].category}
-          />
-        </Link>
+        {this.displayItem()}
       </div>
     );
   }
