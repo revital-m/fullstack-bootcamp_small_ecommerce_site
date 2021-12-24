@@ -7,7 +7,7 @@ export default class Header extends Component {
         return (
             <header className="header">
                 <Link className="header--link" to="/">Homepage</Link>
-                <Link className="header--link" to="/products">Products</Link>
+                <Link className="header--link" to="/categories">Categories</Link>
             </header>
         )
     }

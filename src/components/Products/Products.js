@@ -1,31 +1,34 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import storeData from '../../store';
-import './Products.css';
+import storeData from '../../storeData/storeWoman';
+import './Products.css'
 
 export default class Products extends Component {
-    state = { data: null };
 
-    componentDidMount() {
-        this.setState({ data: storeData });
+    handleClick = () => {
+        this.props.history.goBack();
     }
 
-    displayProduct = () => {
-        return this.state.data.map((item) => {
-            return (
-                <Link to={`/product/${item.id}`} key={item.id}>
-                    <button className="btn" >{item.title}</button>
-                </Link>
-            );
-        });
+    displayItem = () => {
+        
+        const choosenItem = Number(this.props.match.params.id);
+        const itemToDisplay = storeData.find(item => item.id === choosenItem )
+        return (
+            <div className="card">
+                <img className="cardImg" src={itemToDisplay.imageUrl} alt={itemToDisplay.title}></img>
+                <div className="cardInfo">
+                    <h1>{itemToDisplay.title}</h1>
+                    <p>Price: {itemToDisplay.price}</p>
+                    <p>Size: {itemToDisplay.size}</p>
+                    <button className="btn--category" onClick={this.handleClick}>Back</button>
+                </div>
+            </div>
+        );
     }
 
     render() {
         return (
-            <div className="products">
-                <div className="btn-container">
-                 {this.state.data && this.displayProduct()}
-                </div>
+            <div className='product-detail'>
+                {this.displayItem()}
             </div>
         )
     }
