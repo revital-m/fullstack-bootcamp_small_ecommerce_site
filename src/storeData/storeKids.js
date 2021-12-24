@@ -1,7 +1,7 @@
 const storeKids = [
     {
       category: "shose",
-      imgClass: "card--kid--shose",
+      imgClass: "card--kids--shose",
       data: [
         {
           title: "Boots",
@@ -31,7 +31,7 @@ const storeKids = [
     },
     {
       category: "Games",
-      imgClass: "card--kid--games",
+      imgClass: "card--kids--games",
       data: [
         {
           title: "Jenga Game",
@@ -61,7 +61,7 @@ const storeKids = [
     },
     {
       category: "Clothing",
-      imgClass: "card--kid--clothing",
+      imgClass: "card--kids--clothing",
       data: [
         {
           title: "White Dress",
@@ -91,7 +91,7 @@ const storeKids = [
     },
     {
       category: "Babies",
-      imgClass: "card--kid--babies",
+      imgClass: "card--kids--babies",
       data: [
         {
           title: "Bunny Hat",

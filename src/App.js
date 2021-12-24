@@ -17,7 +17,7 @@ class App extends Component {
             <Header />
             <Route path="/" exact component={Homepage} />
             <Route path="/categories/:name" exact component={Categories} />
-            <Route path="/products/:category" exact component={Products} />
+            <Route path="/products/:category/:name" exact component={Products} />
           </div>
         </BrowserRouter>
       </div>
