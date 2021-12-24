@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import CategoryCard from "../utilities/CategoryCard/CategoryCard";
-// import storeData from '../../storeData/storeWoman';
 import "./Categories.css";
 import storeWoman from "../../storeData/storeWoman";
 import storeMan from "../../storeData/storeMan";
@@ -18,26 +17,27 @@ export default class Products extends Component {
   };
 
   displayItem = () => {
-    return this.state[this.state.categoryName].map((category,idx) => {
+    return this.state[this.state.categoryName].map((category, idx) => {
       return (
         <Link
-          to={`/products/${this.state.categoryName}/${this.state[this.state.categoryName][idx].category.toLowerCase()}/${idx}`}
+          to={`/products/${this.state.categoryName}/${this.state[
+            this.state.categoryName
+          ][idx].category.toLowerCase()}/${idx}`}
           className="categories--link"
+          key={idx}
         >
           <CategoryCard
-            categoryCardClass={this.state[this.state.categoryName][idx].imgClass}
+            categoryCardClass={
+              this.state[this.state.categoryName][idx].imgClass
+            }
             categoryCardName={this.state[this.state.categoryName][idx].category}
           />
         </Link>
       );
     });
-  }
+  };
 
-  render() {   
-    return (
-      <div className="categories">
-        {this.displayItem()}
-      </div>
-    );
+  render() {
+    return <div className="categories">{this.displayItem()}</div>;
   }
 }
