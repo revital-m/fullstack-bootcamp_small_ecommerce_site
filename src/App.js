@@ -5,6 +5,11 @@ import Header from "./components/Header/Header";
 import Homepage from "./components/Homepage/Homepage";
 import Categories from "./components/Categories/Categories";
 import Products from "./components/Products/Products";
+import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
+
+localStorage.setItem("counter", 0);
+localStorage.setItem("itemsArr", JSON.stringify([]));
+localStorage.setItem("total", 0);
 
 class App extends Component {
   render() {
@@ -20,6 +25,7 @@ class App extends Component {
               exact
               component={Products}
             />
+            <Route path="/shopping-cart" exact component={ShoppingCart} />
           </div>
         </BrowserRouter>
       </div>

@@ -1,12 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import "./CategoryCard.css";
 
-export default class CategoryCard extends Component {
-  render() {
-    return (
-      <div className={`card ${this.props.categoryCardClass}`}>
-        <h1>{this.props.categoryCardName}</h1>
-      </div>
-    );
-  }
+export default function CategoryCard(props) {
+  return (
+    <div className={`card ${props.categoryCardClass}`}>
+      <h1>{props.categoryCardName}</h1>
+    </div>
+  );
 }

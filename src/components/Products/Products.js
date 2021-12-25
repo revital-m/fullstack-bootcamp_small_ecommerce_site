@@ -23,9 +23,10 @@ export default class Products extends Component {
       return (
         <ProductCard
           key={item.id}
+          id={item.id}
           imgSrc={item.imageUrl}
           title={item.title}
-          description={item.price}
+          price={item.price}
         />
       );
     });
